@@ -1,0 +1,6 @@
+za\co\spvip\student\voting\system\controllers\StuController.class
+za\co\spvip\student\voting\system\services\StuService.class
+za\co\spvip\student\voting\system\StudentVotingSystemApplication.class
+za\co\spvip\student\voting\system\entities\Student.class
+za\co\spvip\student\voting\system\dto\StuDto.class
+za\co\spvip\student\voting\system\repository\StuRepository.class
