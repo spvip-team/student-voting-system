@@ -5,4 +5,5 @@ import za.co.spvip.student.voting.system.entities.Student;
 
 public interface StudentRepository extends JpaRepository<Student,Long> {
     Student findStudentByName(String name);
+
 }

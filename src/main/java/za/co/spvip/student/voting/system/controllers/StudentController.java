@@ -22,5 +22,6 @@ public class StudentController {
     @PostMapping("students")
     ResponseEntity<?>AddStudent(@RequestBody StudentDto studentDto){
         return  studentService.Add((studentDto));
+
     }
 }
