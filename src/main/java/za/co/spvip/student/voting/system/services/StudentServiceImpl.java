@@ -15,7 +15,6 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-
 public class StudentServiceImpl implements  StudentService{
     private  final StudentRepository studentRepository;
 
@@ -27,16 +26,17 @@ public class StudentServiceImpl implements  StudentService{
     @Override
     public ResponseEntity<?> Add(StudentDto studentDto) {
 
-        Student student = studentRepository.findStudentByName(studentDto.getName());
+        Student student = studentRepository.findByEmail(studentDto.getEmail());
        if(ObjectUtils.isEmpty(student)){
            Student newStudent  = new Student();
            newStudent.setName(studentDto.getName());
            newStudent.setSurname(studentDto.getSurname());
            newStudent.setAddress(studentDto.getAddress());
-           newStudent.setNumber(studentDto.getStudentNumber());
-           newStudent.setUpdatedAt(studentDto.getUpdatedAt());
+           //TODO Need to auto generate
+           //newStudent.setNumber();
            newStudent.setEmail(studentDto.getEmail());
-           newStudent.setCreatedAt(studentDto.getCreatedAt());
+           //TODO Encrypt the password
+           newStudent.setPassword(studentDto.getPassword());
            studentRepository.save(newStudent);
 
            return ResponseEntity.status(HttpStatus.CREATED).body("Student created successfully");

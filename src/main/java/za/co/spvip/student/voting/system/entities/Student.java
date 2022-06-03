@@ -4,8 +4,11 @@ package za.co.spvip.student.voting.system.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,16 +23,16 @@ public class Student {
     private String name;
     @Column(nullable = false)
     private  String surname;
-    @Column(unique = true)
+    @Column(unique = true,nullable = false)
     private String email;
-    @Column(nullable = false)
     private  Integer number;
-
     private  String address;
     @Column(nullable = false)
-    private  Character[] password;
-    private  String createdAt;
-    private  String updatedAt;
+    private  String  password;
+    @CreationTimestamp
+    private Timestamp createdAt;
+    @UpdateTimestamp
+    private Timestamp updatedAt;
 
 
 }

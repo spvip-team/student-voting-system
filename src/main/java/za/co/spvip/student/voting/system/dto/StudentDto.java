@@ -12,20 +12,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentDto {
-
     private Long id;
-@NotNull
+    @NotNull
     private String name;
     @NotNull
     private  String surname;
-
     private String email;
-
-    private  Integer studentNumber;
-
     private  String address;
-
-    private  Character[] password;
-    private  String createdAt;
-    private  String updatedAt;
+    @NotNull
+    private  String password;
 }
