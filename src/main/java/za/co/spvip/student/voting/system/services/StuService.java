@@ -10,5 +10,5 @@ public interface StuService {
 
     List<Student> getAll();
 
-    ResponseEntity<String> Add(StuDto stuDto);
+    ResponseEntity<?> Add(StuDto stuDto);
 }

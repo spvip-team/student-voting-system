@@ -15,16 +15,17 @@ import java.util.List;
 
 public class StuController {
     @Autowired
-    za.co.spvip.student.voting.system.services.StuService StuService;
+    StuService StuService;
 
     @GetMapping("Students")
-    ResponseEntity<List<Student>> getAllProducts(){
+    ResponseEntity<List<Student>> getAllStudents(){
 
         return   ResponseEntity.ok(StuService.getAll());
 
     }
     @PostMapping("students")
-    ResponseEntity<?> AddProduct(@RequestBody StuDto StuDto){
+    ResponseEntity<?> AddStudent(@RequestBody StuDto StuDto){
+
         return StuService.Add(StuDto);
     }
 }

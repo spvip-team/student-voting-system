@@ -10,6 +10,7 @@ import za.co.spvip.student.voting.system.entities.Student;
 import za.co.spvip.student.voting.system.repository.StuRepository;
 
 import java.util.List;
+import javax.persistence.Column;
 
 @Service
 @AllArgsConstructor
@@ -18,20 +19,22 @@ public class StuServiceImpl implements StuService {
 
     @Override
     public List<Student> getAll() {
+
         return stuRepository.findAll();
     }
 
     @Override
-    public ResponseEntity<String> Add(StuDto stuDto) {
+    public ResponseEntity<?> Add(StuDto stuDto) {
 
-        Student student = stuRepository.findProductByName(StuDto.getName());
+        Student student = stuRepository.findByEmail(StuDto.getEmail);
         if (ObjectUtils.isEmpty(student)) {
-            Student newProduct = new Student();
-            newProduct.setName(StuDto.getName());
-            newProduct.setInitials(StuDto.getInitials());
-            newProduct.setStudentNumber(StuDto.getStudentNumber());
+            Student newStudent = new Student();
+            newStudent.setName(StuDto.getName);
+            newStudent.setSurname(StuDto.getSurname);
+            newStudent.setAddress(StuDto.getAddress);
+            newStudent.setEmail(StuDto.getEmail);
+            newStudent.setPassword(StuDto.getPassword);
 
-            StuRepository.save(newProduct);
 
             return ResponseEntity.status(HttpStatus.CREATED).body("successfully");
         }

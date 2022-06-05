@@ -8,14 +8,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StuDto {
+    public static String getSurname;
+    public static String getAddress;
+    public static String getEmail;
+    public static String getName;
+    public static String getPassword;
     private long id;
     @NotNull
+    private String name;
+    @NotNull
     private String surname;
-    private String initials;
-    private double StudentNumber;
-    private String password;
     private String email;
-    private double contact;
-    private int idNumber;
+    private String address;
+    @NotNull
+    private String password;
 
 }
