@@ -22,8 +22,7 @@ public class Vote {
     private String surname;
     @Column(unique = true, nullable = false)
     private String email;
-    private Integer number;
-    private String address;
+    private double studentNo;
     @Column(nullable = false)
     private Character[] password;
     private String createdAt;
